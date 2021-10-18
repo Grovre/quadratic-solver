@@ -98,7 +98,7 @@ public class Simplify {
         int outRoot = 1;
         // Loops with i ascending but going no further than √inRoot. √inRoot works as the max i because any number greater than √inRoot when squared will be greater than inRoot, meaning inRoot % (i*i) will always be false no matter what. Using √inRoot as a ceiling only does as many iterations as it needs to for checking perfect square factors.
         for(int i = 2; i < (int) Math.sqrt(inRoot)+1; i++) {
-            System.out.println("Checking if " + inRoot + " % " + (i*i) + " == 0 (" + i + ")");
+            System.out.println("Checking if " + inRoot + " % " + (i*i) + " == 0 (" + i + "^2)");
             // You need a perfect square factor of the number inside the radical to be able to simplify it further. i is the perfect square root of a factor which is why i*i.
             if(inRoot % (i*i) == 0) {
                 System.out.print("Yes, ");
