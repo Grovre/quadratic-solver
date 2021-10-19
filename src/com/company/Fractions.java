@@ -24,6 +24,14 @@ public class Fractions {
         return denom;
     }
 
+    public void setNumerator(int newNumerator) {
+        numer = newNumerator;
+    }
+
+    public void setDenominator(int newDenominator) {
+        denom = newDenominator;
+    }
+
     // Prints the fraction on one line
     @Override
     public String toString() {
@@ -62,7 +70,9 @@ public class Fractions {
         numer2 *= lcd / toCompare;
         denom2 *= lcd / toCompare;
 
-        return new Fractions(numer1 += numer2, denom1);
+        int gcf = Simplify.simplifyAll(numer1 + numer2, denom1);
+
+        return new Fractions((numer1 += numer2)/gcf, denom1/gcf);
     }
 
     // Used to subtract fractions, lcd calculated and all. Lcm is for the first fraction
@@ -97,7 +107,9 @@ public class Fractions {
         numer2 *= lcd / toCompare;
         denom2 *= lcd / toCompare;
 
-        return new Fractions(numer1 -= numer2, denom1);
+        int gcf = Simplify.simplifyAll(numer1 - numer2, denom1);
+
+        return new Fractions((numer1 -= numer2)/gcf, denom1/gcf);
     }
 
     // Used to multiply fractions

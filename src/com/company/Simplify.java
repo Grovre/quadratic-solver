@@ -14,14 +14,14 @@ public class Simplify {
         // Simplifies 5 nums
         for(int gcf = Math.min(a,Math.min(b,Math.min(c,Math.min(d,e)))); gcf > 1; gcf--) {
             // if all the numbers are divisible by i...
-            System.out.println("Testing " + gcf + ".");
+            System.out.println("Testing GCF " + gcf + ".");
             if(a % gcf == 0 &&
                     b % gcf == 0 &&
                     c % gcf == 0 &&
                     d % gcf == 0 &&
                     e % gcf == 0) {
                 System.out.println("Test checked.");
-                System.out.println("\nGCF: " + gcf);
+                System.out.println("GCF: " + gcf);
                 return gcf;
             }
         }
@@ -38,13 +38,13 @@ public class Simplify {
         // This for loop gets the absolute smallest number passed and descends by 1 until 1 to find a GCF.
         for(int gcf = Math.min(a,Math.min(b,Math.min(c,d))); gcf > 1; gcf--) {
             // if all the numbers are divisible by i...
-            System.out.println("Testing " + gcf + ".");
+            System.out.println("Testing GCF " + gcf + ".");
             if(a % gcf == 0 &&
                     b % gcf == 0 &&
                     c % gcf == 0 &&
                     d % gcf == 0) {
                 System.out.println("Test checked.");
-                System.out.println("\nGCF: " + gcf);
+                System.out.println("GCF: " + gcf);
                 return gcf;
             }
         }
@@ -60,12 +60,12 @@ public class Simplify {
         // This for loop gets the absolute smallest number passed and descends by 1 until 1 to find a GCF.
         for(int gcf = Math.min(a,Math.min(b,c)); gcf > 1; gcf--) {
             // if all the numbers are divisible by i...
-            System.out.println("Testing " + gcf + ".");
+            System.out.println("Testing GCF " + gcf + ".");
             if(a % gcf == 0 &&
                     b % gcf == 0 &&
                     c % gcf == 0) {
                 System.out.println("Test checked.");
-                System.out.println("\nGCF: " + gcf);
+                System.out.println("GCF: " + gcf);
                 return gcf;
             }
         }
@@ -80,10 +80,10 @@ public class Simplify {
         // This for loop gets the absolute smallest number passed and descends by 1 until 1 to find a GCF.
         for(int gcf = Math.min(a,b); gcf > 1; gcf--) {
             // if all the numbers are divisible by i...
-            System.out.println("Testing " + gcf + ".");
+            System.out.println("Testing GCF " + gcf + ".");
             if(a % gcf == 0 && b % gcf == 0) {
                 System.out.println("Test checked.");
-                System.out.println("\nGCF: " + gcf);
+                System.out.println("GCF: " + gcf);
                 return gcf;
             }
         }
