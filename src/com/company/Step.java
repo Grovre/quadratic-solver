@@ -2,8 +2,8 @@ package com.company;
 
 public class Step {
 
-    private static int stepCount;
-    private static String simplifiedStep;
+    private int stepCount;
+    private String simplifiedStep;
 
     // There are 4 different constructors for different scenarios of all possibilities
     public Step() {

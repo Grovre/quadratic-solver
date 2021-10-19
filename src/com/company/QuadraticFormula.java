@@ -2,7 +2,7 @@ package com.company;
 
 public class QuadraticFormula {
 
-    private static String quadratic;
+    private String quadratic;
     Step steps = new Step();
 
     public QuadraticFormula(int a, int b, int c) {

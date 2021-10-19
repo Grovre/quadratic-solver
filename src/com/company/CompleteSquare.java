@@ -3,10 +3,10 @@ package com.company;
 @Deprecated // Incomplete
 public class CompleteSquare {
 
-    private static String equation;
-    private static int a;
-    private static int b;
-    private static int c;
+    private String equation;
+    private int a;
+    private int b;
+    private int c;
     private Step steps = new Step();
 
     // constructor, pass as Ax + Bx + C = 0
