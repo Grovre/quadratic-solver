@@ -17,7 +17,7 @@ public class test {
 
         // CompleteSquare test
         int a = 1;
-        int b = -4;
+        int b = -5;
         int c = 15;
         new CompleteSquare(a, b, c);
     }

@@ -25,29 +25,13 @@ public class CompleteSquare {
         equation = a + "x^2 + " + b + "x = " + c;
         steps.nextStep(equation);
 
-        Fractions bOver2 = new Fractions(b, 2);
-        int b2Numer = bOver2.returnNumerator()*bOver2.returnNumerator();
-        int b2Denom = bOver2.returnDenominator()*bOver2.returnDenominator();
-        Fractions cFraction = bOver2.addFractions(new Fractions(c, 1)).simplifyFraction();
-        // cFraction = cFraction.simplifyFraction();
-        equation = a + "x^2 + " + b + "x + " + b + b2Numer + "/" + b2Denom + " = " + cFraction;
-        steps.nextStep(equation);
-
-        if(cFraction.returnDenominator() == 1) {
-
+        if(b % 2 != 0) {
+            Fractions bOver2 = new Fractions(b, 2);
+            Fractions cOver2 = new Fractions(c, 2);
+            // The first fraction shows the bOver2 fraction squared and adding bOver2 to the right side of the equation. Long but not complicated
+            equation = a + "x^2 + " + b + "x + " + (new Fractions(bOver2.returnNumerator() * bOver2.returnNumerator(), bOver2.returnDenominator() * bOver2.returnDenominator())) + " = " + cOver2  + " + " + bOver2;
+            steps.nextStep(equation);
         }
-
-        // Useless right now, probably forever
-        /*if(cFraction.returnDenominator() == 1) {
-            cWhole = cFraction.returnNumerator();
-            equation = a + "x^2 + " + b + "x + " + b + b2Numer + "/" + b2Denom + " = " + c + " + " + cWhole;
-            steps.nextStep(equation);
-
-            c += cWhole;
-        } else {
-            equation = a + "x^2 + " + b + "x + " + b + b2Numer + "/" + b2Denom + " = " + c + " + " + bOver2;
-            steps.nextStep(equation);
-        }*/
 
 
 
