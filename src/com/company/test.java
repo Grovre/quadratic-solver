@@ -9,10 +9,10 @@ public class test {
         System.out.println(fraction2);
 
 
-        System.out.println("Add: " + fraction1 + " + " + fraction2 + " = " + fraction1.addFractions(fraction2));
-        System.out.println("Subtract: " + fraction1 + " - " + fraction2 + " = " + fraction1.subtractFractions(fraction2));
-        System.out.println("Multiply: " + fraction1 + " * " + fraction2 + " = " + fraction1.multiplyFractions(fraction2));
-        System.out.println("Divide: " + fraction1 + " / " + fraction2 + " = " + fraction1.divideFractions(fraction2));
+        System.out.println("Addition: " + fraction1 + " + " + fraction2 + " = " + fraction1.addFractions(fraction2) + "\n\n");
+        System.out.println("Subtraction: " + fraction1 + " - " + fraction2 + " = " + fraction1.subtractFractions(fraction2) + "\n\n");
+        System.out.println("Multiplication: " + fraction1 + " * " + fraction2 + " = " + fraction1.multiplyFractions(fraction2) + "\n\n");
+        System.out.println("Division: " + fraction1 + " / " + fraction2 + " = " + fraction1.divideFractions(fraction2) + "\n\n");
 
     }
 }
