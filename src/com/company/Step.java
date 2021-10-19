@@ -30,7 +30,8 @@ public class Step {
     public void nextStep(String str) {
         simplifiedStep = str;
         stepCount++;
-        System.out.println(stepCount + ". ");
+        System.out.println();
+        System.out.println(stepCount + ". \n");
         System.out.println(simplifiedStep);
     }
 
@@ -38,7 +39,8 @@ public class Step {
     public void nextStep(int num, String str) {
         simplifiedStep = str;
         stepCount = num;
-        System.out.println(stepCount + ". ");
+        System.out.println();
+        System.out.println(stepCount + ". \n");
         System.out.println(simplifiedStep);
     }
 
@@ -58,9 +60,19 @@ public class Step {
         System.out.println(stepCount);
     }
 
+    // Returns stepCount
+    public int returnStepCount() {
+        return stepCount;
+    }
+
     // prints str in simplifiedStep
     public void printString() {
         System.out.println(simplifiedStep);
+    }
+
+    // Returns String of current simplified step stored
+    public String returnStepString() {
+        return simplifiedStep;
     }
 
 }

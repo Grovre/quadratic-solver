@@ -41,8 +41,9 @@ public class Fractions {
     }
 
     // Used to add fractions, lcd calculated and all. Lcm is for the first fraction
-    public Object addFractions(Fractions fraction) {
+    public Fractions addFractions(Fractions fraction) {
         // System.out.println("\n\n\nAdding Fractions");
+        // assigning numer1 and denom1 keeps the original fraction
         int numer1 = numer;
         int denom1 = denom;
         int numer2 = fraction.returnNumerator();
@@ -80,8 +81,9 @@ public class Fractions {
     }
 
     // Used to subtract fractions, lcd calculated and all. Lcm is for the first fraction
-    public Object subtractFractions(Fractions fraction) {
+    public Fractions subtractFractions(Fractions fraction) {
         // System.out.println("\n\n\nSubtracting Fractions");
+        // assigning numer1 and denom1 keeps the original fraction
         int numer1 = numer;
         int denom1 = denom;
         int numer2 = fraction.returnNumerator();
@@ -119,7 +121,7 @@ public class Fractions {
     }
 
     // Used to multiply fractions
-    public Object multiplyFractions(Fractions fraction) {
+    public Fractions multiplyFractions(Fractions fraction) {
         // System.out.println("\n\n\nMultiplying Fractions");
         int numer2 = fraction.returnNumerator();
         int denom2 = fraction.returnDenominator();
@@ -128,13 +130,22 @@ public class Fractions {
     }
 
     // Used to divide fractions, reciprocal and all
-    public Object divideFractions(Fractions fraction) {
+    public Fractions divideFractions(Fractions fraction) {
         // System.out.println("\n\n\n Dividing Fractions");
         // Gets reciprocal by assigning numer and denom to their opposites 😈
         int denom2 = fraction.returnNumerator();
         int numer2 = fraction.returnDenominator();
         int gcf = Simplify.simplifyAll(numer*numer2, denom2*denom);
         return new Fractions(numer*numer2/gcf, denom*denom2/gcf);
+    }
+
+    public Fractions simplifyFraction() {
+        int gcf = Simplify.simplifyAll(numer, denom);
+
+        if(gcf == 1) {
+            return this;
+        }
+        return new Fractions(numer/gcf, denom/gcf);
     }
 
 }

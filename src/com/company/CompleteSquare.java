@@ -18,12 +18,38 @@ public class CompleteSquare {
         steps.nextStep(equation);
 
         if(a != 1) {
-            Simplify.simplifyAll(a, b, c, -1, -1);
+            Simplify.simplifyAll(a, b, c);
         }
 
         c *= -1;
         equation = a + "x^2 + " + b + "x = " + c;
         steps.nextStep(equation);
+
+        Fractions bOver2 = new Fractions(b, 2);
+        int b2Numer = bOver2.returnNumerator()*bOver2.returnNumerator();
+        int b2Denom = bOver2.returnDenominator()*bOver2.returnDenominator();
+        Fractions cFraction = bOver2.addFractions(new Fractions(c, 1)).simplifyFraction();
+        // cFraction = cFraction.simplifyFraction();
+        equation = a + "x^2 + " + b + "x + " + b + b2Numer + "/" + b2Denom + " = " + cFraction;
+        steps.nextStep(equation);
+
+        if(cFraction.returnDenominator() == 1) {
+
+        }
+
+        // Useless right now, probably forever
+        /*if(cFraction.returnDenominator() == 1) {
+            cWhole = cFraction.returnNumerator();
+            equation = a + "x^2 + " + b + "x + " + b + b2Numer + "/" + b2Denom + " = " + c + " + " + cWhole;
+            steps.nextStep(equation);
+
+            c += cWhole;
+        } else {
+            equation = a + "x^2 + " + b + "x + " + b + b2Numer + "/" + b2Denom + " = " + c + " + " + bOver2;
+            steps.nextStep(equation);
+        }*/
+
+
 
     }
 
