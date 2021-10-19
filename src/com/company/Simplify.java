@@ -10,7 +10,7 @@ public class Simplify {
         c = Math.abs(c);
         d = Math.abs(d);
         e = Math.abs(e);
-        // This for loop gets the absolute smallest number in the quadratic and descends by 1 until 1 to find a GCF.
+        // This for loop gets the absolute smallest number passed and descends by 1 until 1 to find a GCF.
         // Simplifies 5 nums
         for(int gcf = Math.min(a,Math.min(b,Math.min(c,Math.min(d,e)))); gcf > 1; gcf--) {
             // if all the numbers are divisible by i...
@@ -35,7 +35,7 @@ public class Simplify {
         b = Math.abs(b);
         c = Math.abs(c);
         d = Math.abs(d);
-        // This for loop gets the absolute smallest number in the quadratic and descends by 1 until 1 to find a GCF.
+        // This for loop gets the absolute smallest number passed and descends by 1 until 1 to find a GCF.
         for(int gcf = Math.min(a,Math.min(b,Math.min(c,d))); gcf > 1; gcf--) {
             // if all the numbers are divisible by i...
             System.out.println("Testing " + gcf + ".");
@@ -57,7 +57,7 @@ public class Simplify {
         a = Math.abs(a);
         b = Math.abs(b);
         c = Math.abs(c);
-        // This for loop gets the absolute smallest number in the quadratic and descends by 1 until 1 to find a GCF.
+        // This for loop gets the absolute smallest number passed and descends by 1 until 1 to find a GCF.
         for(int gcf = Math.min(a,Math.min(b,c)); gcf > 1; gcf--) {
             // if all the numbers are divisible by i...
             System.out.println("Testing " + gcf + ".");
@@ -77,7 +77,7 @@ public class Simplify {
     public static int simplifyAll(int a, int b) {
         a = Math.abs(a);
         b = Math.abs(b);
-        // This for loop gets the absolute smallest number in the quadratic and descends by 1 until 1 to find a GCF.
+        // This for loop gets the absolute smallest number passed and descends by 1 until 1 to find a GCF.
         for(int gcf = Math.min(a,b); gcf > 1; gcf--) {
             // if all the numbers are divisible by i...
             System.out.println("Testing " + gcf + ".");
