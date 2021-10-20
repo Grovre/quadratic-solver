@@ -17,30 +17,23 @@ public class CompleteSquare {
         equation = a + "x^2 + " + b + "x + " + c + " = 0";
         steps.nextStep(equation);
 
-        // To be improved on later, won't always work
-        if(a != 1) {
-            Simplify.simplifyAll(a, b, c);
-        }
-
-        c *= -1;
-        equation = a + "x^2 + " + b + "x = " + c;
+        // Sets everything over a no matter what, that way all the math can be done with class Fractions methods
+        Fractions bFraction = new Fractions(b, a);
+        Fractions cFraction = new Fractions(c, a);
+        a = 1;
+        equation = a + "x^2 + " + bFraction + "x + " + cFraction + " = 0";
         steps.nextStep(equation);
 
-        // Makes new objects holding the value of b/2 and c/2
-        Fractions bOver2 = new Fractions(b, 2);
-        Fractions cOver2 = new Fractions(c, 2);
-        // The first fraction shows the bOver2 fraction squared and adding bOver2 to the right side of the equation. Long but not complicated
-        equation = a + "x^2 + " + b + "x + " + (new Fractions(bOver2.returnNumerator() * bOver2.returnNumerator(), bOver2.returnDenominator() * bOver2.returnDenominator())) + " = " + cOver2  + " + " + bOver2;
+        // newC is bFraction divided by 2, cFraction is what previously was c * -1 to account for the operation to move it over
+        // (a)x^2 + (bFraction)x + (newC)^2 = (cFraction) + newC
+        cFraction.setNumerator(cFraction.returnNumerator() * -1);
+        Fractions newC = bFraction.divideFractions(new Fractions(2, 1));
+        equation = a + "x^2 + " + bFraction + "x + " + newC.returnNumerator()*newC.returnNumerator() + "/" + newC.returnDenominator()* newC.returnDenominator() + " = " + cFraction + " + " + newC;
         steps.nextStep(equation);
 
-        cOver2 = cOver2.addFractions(bOver2);
-        equation = "(x + " + bOver2 + ")^2 = " + cOver2;
+        cFraction = cFraction.addFractions(newC);
+        equation = "(x + " + newC + ")^2 = " + cFraction;
         steps.nextStep(equation);
-
-        equation = "√(x + " + bOver2 + ")^2 = √" + cOver2.returnNumerator() + "/√" + cOver2.returnDenominator();
-        steps.nextStep(equation);
-
-
     }
 
 }
