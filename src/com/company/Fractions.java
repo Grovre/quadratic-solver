@@ -9,7 +9,9 @@ public class Fractions {
     public Fractions(int numerator, int denominator) {
         numer = numerator;
         denom = denominator;
-        // System.out.println("New fraction created: " + this.toString());
+        // Makes sure that any two negatives will return a positive and the negative on the denominator moves to the numerator
+        this.correctNegatives();
+        System.out.println("New fraction created: " + this);
     }
 
     // Returns the numerator of the fraction object
@@ -52,8 +54,8 @@ public class Fractions {
         // While loop searches for lcm. Works by setting lcd to any denominator (set to calling object's denom) * lcm. It then checks if the smaller denominator is a factor of the new lcd. If not, increase the lcm by 1 and repeat until one is found.
         boolean noLCD = true;
         int lcm = 1;
-        int smallerDenom = Math.min(denom1, denom2);
-        int largerDenom = Math.max(denom1, denom2);
+        int smallerDenom = Math.min(Math.abs(denom1), Math.abs(denom2));
+        int largerDenom = Math.max(Math.abs(denom1), Math.abs(denom2));
         int lcd = 0;
         while (noLCD) {
             lcd = largerDenom * lcm;
@@ -71,10 +73,19 @@ public class Fractions {
         }
 
         // Assigns all the fraction number used to what they should be when setting up a problem like this on paper
+        System.out.println("Adding...\nFraction 1: " + this + "\nFraction 2: " + fraction);
+        System.out.println("numer1 before: " + numer1);
         numer1 *= lcm;
+        System.out.println("numer1 after: " + numer1);
+        System.out.println("denom1 before: " + denom1);
         denom1 *= lcm;
+        System.out.println("denom1 after: " + denom1);
+        System.out.println("numer2 before: " + numer2);
         numer2 *= lcd / smallerDenom;
+        System.out.println("numer2 after: " + numer2);
+        System.out.println("denom2 before: " + denom2);
         denom2 *= lcd / smallerDenom;
+        System.out.println("denom2 after: " + denom2);
         int gcf = Simplify.simplifyAll(numer1 + numer2, denom1);
 
         return new Fractions((numer1 += numer2)/gcf, denom1/gcf);
@@ -92,8 +103,8 @@ public class Fractions {
         // While loop searches for lcm. Works by setting lcd to any denominator (set to calling object's denom) * lcm. It then checks if the smaller denominator is a factor of the new lcd. If not, increase the lcm by 1 and repeat until one is found.
         boolean noLCD = true;
         int lcm = 1;
-        int smallerDenom = Math.min(denom1, denom2);
-        int largerDenom = Math.max(denom1, denom2);
+        int smallerDenom = Math.min(Math.abs(denom1), Math.abs(denom2));
+        int largerDenom = Math.max(Math.abs(denom1), Math.abs(denom2));
         int lcd = 0;
         while (noLCD) {
             lcd = largerDenom * lcm;
@@ -146,6 +157,13 @@ public class Fractions {
             return this;
         }
         return new Fractions(numer/gcf, denom/gcf);
+    }
+
+    public void correctNegatives() {
+        if ((numer < 0 && denom < 0) || (numer > 0 && denom < 0)) {
+            numer *= -1;
+            denom *= -1;
+        }
     }
 
 }
