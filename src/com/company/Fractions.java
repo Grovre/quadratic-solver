@@ -4,6 +4,8 @@ public class Fractions {
 
     private int numer;
     private int denom;
+    private int[] numerRoot;
+    private int[] denomRoot;
 
     // Constructor, just assigns object variable numer and denom to the arguments
     public Fractions(int numerator, int denominator) {
@@ -11,7 +13,10 @@ public class Fractions {
         denom = denominator;
         // Makes sure that any two negatives will return a positive and the negative on the denominator moves to the numerator
         this.correctNegatives();
+        sqrt();
         System.out.println("New fraction created: " + this);
+        System.out.println("Fraction √numerator: " + numerRoot[0] + "√" + numerRoot[1]);
+        System.out.println("Fraction √denominator: " + denomRoot[0] + "√" + denomRoot[1]);
     }
 
     // Returns the numerator of the fraction object
@@ -73,19 +78,37 @@ public class Fractions {
         }
 
         // Assigns all the fraction number used to what they should be when setting up a problem like this on paper
-        System.out.println("Adding...\nFraction 1: " + this + "\nFraction 2: " + fraction);
-        System.out.println("numer1 before: " + numer1);
-        numer1 *= lcm;
-        System.out.println("numer1 after: " + numer1);
-        System.out.println("denom1 before: " + denom1);
-        denom1 *= lcm;
-        System.out.println("denom1 after: " + denom1);
-        System.out.println("numer2 before: " + numer2);
-        numer2 *= lcd / smallerDenom;
-        System.out.println("numer2 after: " + numer2);
-        System.out.println("denom2 before: " + denom2);
-        denom2 *= lcd / smallerDenom;
-        System.out.println("denom2 after: " + denom2);
+        System.out.println("\nAdding...\nFraction 1: " + this + "\nFraction 2: " + fraction);
+        if(smallerDenom == denom1 && smallerDenom != denom2) {
+            System.out.println("numer1 before: " + numer1);
+            numer1 *= lcm*2;
+            System.out.println("numer1 after: " + numer1);
+            System.out.println("denom1 before: " + denom1);
+            denom1 *= lcm*2;
+            System.out.println("denom1 after: " + denom1);
+            System.out.println("numer2 before: " + numer2);
+            numer2 *= lcd / denom2;
+            System.out.println("numer2 after: " + numer2);
+            System.out.println("denom2 before: " + denom2);
+            denom2 *= lcd / denom2;
+            System.out.println("denom2 after: " + denom2);
+        } else if(smallerDenom != denom1 && smallerDenom == denom2) {
+            System.out.println("numer2 before: " + numer2);
+            numer2 *= lcm;
+            System.out.println("numer2 after: " + numer2);
+            System.out.println("denom2 before: " + denom2);
+            denom2 *= lcm;
+            System.out.println("denom2 after: " + denom2);
+            System.out.println("numer1 before: " + numer1);
+            numer1 *= lcd / denom1;
+            System.out.println("numer1 after: " + numer1);
+            System.out.println("denom1 before: " + denom1);
+            denom1 *= lcd / denom1;
+            System.out.println("denom1 after: " + denom1);
+        }
+
+        System.out.println("Denominators match (" + denom1 + ", " + denom2 + "): " + (denom1 == denom2));
+
         int gcf = Simplify.simplifyAll(numer1 + numer2, denom1);
 
         return new Fractions((numer1 += numer2)/gcf, denom1/gcf);
@@ -164,6 +187,19 @@ public class Fractions {
             numer *= -1;
             denom *= -1;
         }
+    }
+
+    public void sqrt() {
+        numerRoot = Simplify.simplifyRadical(numer);
+        denomRoot = Simplify.simplifyRadical(denom);
+    }
+
+    public int[] getNumerRoot() {
+        return numerRoot;
+    }
+
+    public int[] getDenomRoot() {
+        return denomRoot;
     }
 
 }
