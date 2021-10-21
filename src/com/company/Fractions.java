@@ -194,11 +194,11 @@ public class Fractions {
         denomRoot = Simplify.simplifyRadical(denom);
     }
 
-    public int[] getNumerRoot() {
+    public int[] returnNumerRoot() {
         return numerRoot;
     }
 
-    public int[] getDenomRoot() {
+    public int[] returnDenomRoot() {
         return denomRoot;
     }
 

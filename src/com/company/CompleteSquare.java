@@ -41,25 +41,25 @@ public class CompleteSquare {
         steps.nextStep(equation);
 
         // If cFraction is not a perfect square
-        if((cFraction.getNumerRoot()[1] != 1) || (cFraction.getDenomRoot()[1] != 1)) {
+        if((cFraction.returnNumerRoot()[1] != 1) || (cFraction.returnDenomRoot()[1] != 1)) {
             // Adds the square root signs (√) to the equation for further simplification
-            equation = "x + " + newC + " = +- " + cFraction.getNumerRoot()[0] + "√" + cFraction.getNumerRoot()[1] + "/" + cFraction.getDenomRoot()[0] + "√" + cFraction.getDenomRoot()[1];
+            equation = "x + " + newC + " = +- " + cFraction.returnNumerRoot()[0] + "√" + cFraction.returnNumerRoot()[1] + "/" + cFraction.returnDenomRoot()[0] + "√" + cFraction.returnDenomRoot()[1];
             steps.nextStep(equation);
 
             // Moves newC over
             newC.setNumerator(newC.returnNumerator() * -1);
-            equation = "x = " + newC + " +- " + cFraction.getNumerRoot()[0] + "√" + cFraction.getNumerRoot()[1] + "/" + cFraction.getDenomRoot()[0] + "√" + cFraction.getDenomRoot()[1];
+            equation = "x = " + newC + " +- " + cFraction.returnNumerRoot()[0] + "√" + cFraction.returnNumerRoot()[1] + "/" + cFraction.returnDenomRoot()[0] + "√" + cFraction.returnDenomRoot()[1];
             steps.nextStep(equation);
 
             // If any of the numbers under the radical sign are negative, pull out the eye and done
-            if(cFraction.getNumerRoot()[1] < 0 && cFraction.getDenomRoot()[1] < 0) {
-                equation = "x = " + newC + " +- " + cFraction.getNumerRoot()[0] + "i√" + Math.abs(cFraction.getNumerRoot()[1]) + "/" + cFraction.getDenomRoot()[0] + "i√" + Math.abs(cFraction.getDenomRoot()[1]);
+            if(cFraction.returnNumerRoot()[1] < 0 && cFraction.returnDenomRoot()[1] < 0) {
+                equation = "x = " + newC + " +- " + cFraction.returnNumerRoot()[0] + "i√" + Math.abs(cFraction.returnNumerRoot()[1]) + "/" + cFraction.returnDenomRoot()[0] + "i√" + Math.abs(cFraction.returnDenomRoot()[1]);
                 steps.nextStep(equation);
-            } else if(cFraction.getNumerRoot()[1] < 0 && cFraction.getDenomRoot()[1] > 0) {
-                equation = "x = " + newC + " +- " + cFraction.getNumerRoot()[0] + "i√" + Math.abs(cFraction.getNumerRoot()[1]) + "/" + cFraction.getDenomRoot()[0] + "√" + cFraction.getDenomRoot()[1];
+            } else if(cFraction.returnNumerRoot()[1] < 0 && cFraction.returnDenomRoot()[1] > 0) {
+                equation = "x = " + newC + " +- " + cFraction.returnNumerRoot()[0] + "i√" + Math.abs(cFraction.returnNumerRoot()[1]) + "/" + cFraction.returnDenomRoot()[0] + "√" + cFraction.returnDenomRoot()[1];
                 steps.nextStep(equation);
-            } else if(cFraction.getNumerRoot()[1] > 0 && cFraction.getDenomRoot()[1] < 0) {
-                equation = "x = " + newC + " +- " + cFraction.getNumerRoot()[0] + "√" + cFraction.getNumerRoot()[1] + "/" + cFraction.getDenomRoot()[0] + "i√" + Math.abs(cFraction.getDenomRoot()[1]);
+            } else if(cFraction.returnNumerRoot()[1] > 0 && cFraction.returnDenomRoot()[1] < 0) {
+                equation = "x = " + newC + " +- " + cFraction.returnNumerRoot()[0] + "√" + cFraction.returnNumerRoot()[1] + "/" + cFraction.returnDenomRoot()[0] + "i√" + Math.abs(cFraction.returnDenomRoot()[1]);
                 steps.nextStep(equation);
             }
         }
