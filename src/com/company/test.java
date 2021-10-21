@@ -16,9 +16,9 @@ public class test {
         System.out.println("Division: " + fraction1 + " / " + fraction2 + " = " + fraction1.divideFractions(fraction2) + "\n\n"); */
 
         // CompleteSquare test
-        int a = 1;
-        int b = -5;
-        int c = 15;
+        int a = 6;
+        int b = 9;
+        int c = 4;
         new CompleteSquare(a, b, c);
     }
 }

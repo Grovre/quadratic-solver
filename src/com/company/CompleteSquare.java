@@ -17,7 +17,7 @@ public class CompleteSquare {
         equation = a + "x^2 + " + b + "x + " + c + " = 0";
         steps.nextStep(equation);
 
-        // Sets everything over a no matter what, that way all the math can be done with class Fractions methods
+        // Sets everything over a no matter what, that way all the math can be done with class Fractions methods. Also A must be 1 anyways when completing the square
         Fractions bFraction = new Fractions(b, a);
         Fractions cFraction = new Fractions(c, a);
         a = 1;
@@ -51,7 +51,17 @@ public class CompleteSquare {
             equation = "x = " + newC + " +- " + cFraction.getNumerRoot()[0] + "√" + cFraction.getNumerRoot()[1] + "/" + cFraction.getDenomRoot()[0] + "√" + cFraction.getDenomRoot()[1];
             steps.nextStep(equation);
 
-
+            // If any of the numbers under the radical sign are negative, pull out the eye and done
+            if(cFraction.getNumerRoot()[1] < 0 && cFraction.getDenomRoot()[1] < 0) {
+                equation = "x = " + newC + " +- " + cFraction.getNumerRoot()[0] + "i√" + Math.abs(cFraction.getNumerRoot()[1]) + "/" + cFraction.getDenomRoot()[0] + "i√" + Math.abs(cFraction.getDenomRoot()[1]);
+                steps.nextStep(equation);
+            } else if(cFraction.getNumerRoot()[1] < 0 && cFraction.getDenomRoot()[1] > 0) {
+                equation = "x = " + newC + " +- " + cFraction.getNumerRoot()[0] + "i√" + Math.abs(cFraction.getNumerRoot()[1]) + "/" + cFraction.getDenomRoot()[0] + "√" + cFraction.getDenomRoot()[1];
+                steps.nextStep(equation);
+            } else if(cFraction.getNumerRoot()[1] > 0 && cFraction.getDenomRoot()[1] < 0) {
+                equation = "x = " + newC + " +- " + cFraction.getNumerRoot()[0] + "√" + cFraction.getNumerRoot()[1] + "/" + cFraction.getDenomRoot()[0] + "i√" + Math.abs(cFraction.getDenomRoot()[1]);
+                steps.nextStep(equation);
+            }
         }
     }
 
