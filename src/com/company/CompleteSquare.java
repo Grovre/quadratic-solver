@@ -1,6 +1,5 @@
 package com.company;
 
-@Deprecated // Incomplete
 public class CompleteSquare {
 
     private String equation;
