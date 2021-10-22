@@ -17,6 +17,6 @@ public class test {
         // CompleteSquare test
         // new CompleteSquare(1, -4, 15);
 
-        new Factoring(1, -4, 15);
+        new Factoring(15, 28, 12);
     }
 }
