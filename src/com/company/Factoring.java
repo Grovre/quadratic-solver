@@ -91,11 +91,8 @@ public class Factoring {
         equation = "x = " + endFraction;
         steps.nextStep(equation);
         endFraction = endFraction.simplifyFraction();
-        if(endFraction.returnDenominator() == 1) {
-            equation = "x = " + endFraction.returnNumerator();
-        } else {
-            equation = "x = " + endFraction;
-        }
+        equation = "x = " + endFraction;
+        Fractions answer1 = new Fractions(endFraction.returnNumerator(), endFraction.returnDenominator());
         steps.nextStep(equation);
 
         // Solves for the second x
@@ -109,11 +106,10 @@ public class Factoring {
         equation = "x = " + endFraction;
         steps.nextStep(equation);
         endFraction = endFraction.simplifyFraction();
-        if(endFraction.returnDenominator() == 1) {
-            equation = "x = " + endFraction.returnNumerator();
-        } else {
-            equation = "x = " + endFraction;
-        }
+        equation = "x = " + endFraction;
+        Fractions answer2 = endFraction;
         steps.nextStep(equation);
+
+        System.out.println("\n\nx = " + answer1 + ", " + answer2);
     }
 }
