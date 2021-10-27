@@ -80,8 +80,8 @@ public class Factoring {
         equation = "(" + a1Fraction.returnDenominator() + "x + " + a1 + ")" + "(" + a2Fraction.returnDenominator() + "x + " + a2 + ") = 0";
         steps.nextStep(equation);
 
-        int stepCount = steps.returnStepCount();
         // Solves for the first x
+        int stepCount = steps.returnStepCount();
         equation = a1Fraction.returnDenominator() + "x + " + a1 + " = 0";
         steps.nextStep(equation);
         a1 *= -1;
@@ -110,6 +110,7 @@ public class Factoring {
         Fractions answer2 = endFraction;
         steps.nextStep(equation);
 
+        // final print
         System.out.println("\n\nx = " + answer1 + ", " + answer2);
     }
 }
