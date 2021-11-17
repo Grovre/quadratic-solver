@@ -54,8 +54,6 @@ public class Fractions {
         int denom1 = denom;
         int numer2 = fraction.returnNumerator();
         int denom2 = fraction.returnDenominator();
-        int smallerDenom = Math.min(denom1, denom2);
-        int largerDenom = Math.max(denom1, denom2);
 
         int lcd = getLCD(fraction);
         // Just makes sure the program doesn't die by killing it before it can die a painful death...
